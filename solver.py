@@ -10,6 +10,39 @@ board = [
         [0, 4, 9, 2, 0, 6, 0, 0, 7]
     ]
 
+
+def solve(bo):
+    find=find_empty(bo)
+    if not find:
+        return True
+    else:
+        rol,col=find
+
+
+
+
+
+
+def valid(bo,num,pos):
+
+    for i in range(len(bo[0])):                 #row chwkk 
+        if bo[pos[0][i]]==9 and pos[1]!=i:
+            return False
+    
+    for i in range(len(bo)):                     #column chwkk 
+        if bo[i][pos[i]]==num and pos[0]!=i:
+            return False
+    
+    box_x=pos[1]//3
+    box_y=pos[0]//3
+
+    for i in range(box_y*3,box_y*3+3):
+        for j in range(box_x*3,box_x*3+3):
+            if bo[i][j]==num and (i,j)!=pos:
+                return False
+    return True
+
+
 def print_board(bo):
     for i in range(len(bo)):
         if i%3==0 and i!=0:
@@ -28,3 +61,4 @@ def find_empty(bo):
         for j in range(len(bo[0])):
             if bo[i][j]==0:
                 return(i,j)
+    return None
