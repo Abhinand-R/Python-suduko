@@ -34,11 +34,11 @@ def solve(bo):
 def valid(bo,num,pos):
 
     for i in range(len(bo[0])):                 #row chwkk 
-        if bo[pos[0][i]]==9 and pos[1]!=i:
+        if bo[pos[0]][i]==num and pos[1]!=i:
             return False
     
     for i in range(len(bo)):                     #column chwkk 
-        if bo[i][pos[i]]==num and pos[0]!=i:
+        if bo[i][pos[1]]==num and pos[0]!=i:
             return False
     
     box_x=pos[1]//3
@@ -70,3 +70,8 @@ def find_empty(bo):
             if bo[i][j]==0:
                 return(i,j)
     return None
+
+print_board(board)
+solve(board)
+print("____________________")
+print_board(board)
