@@ -71,7 +71,9 @@ def find_empty(bo):
                 return(i,j)
     return None
 
-print_board(board)
+#print_board(board)
+print("____________________")
+
 solve(board)
 print("____________________")
 print_board(board)
